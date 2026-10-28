@@ -9,14 +9,14 @@
   "orientation": "portrait",
   "icons": [
     {
-      "src": "https://i.ibb.co/TDjg5y8b/1793176994369.jpg",
+      "src": "https://i.ibb.co/JjTKq4W1/20261028-131026.png",
       "sizes": "192x192",
-      "type": "image/jpeg"
+      "type": "image/png"
     },
     {
-      "src": "https://i.ibb.co/TDjg5y8b/1793176994369.jpg",
+      "src": "https://i.ibb.co/JjTKq4W1/20261028-131026.png",
       "sizes": "512x512",
-      "type": "image/jpeg"
+      "type": "image/png"
     }
   ]
 }
