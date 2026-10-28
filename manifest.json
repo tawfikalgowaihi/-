@@ -1,0 +1,22 @@
+{
+  "name": "ملك الفلافل - حورة",
+  "short_name": "ملك الفلافل",
+  "description": "تطبيق طلب الوجبات والفلافل أونلاين من مطعم ملك الفلافل",
+  "start_url": "https://tawfikalgowaihi.github.io/-/",
+  "display": "standalone",
+  "background_color": "#10130f",
+  "theme_color": "#10130f",
+  "orientation": "portrait",
+  "icons": [
+    {
+      "src": "https://i.ibb.co/TDjg5y8b/1793176994369.jpg",
+      "sizes": "192x192",
+      "type": "image/jpeg"
+    },
+    {
+      "src": "https://i.ibb.co/TDjg5y8b/1793176994369.jpg",
+      "sizes": "512x512",
+      "type": "image/jpeg"
+    }
+  ]
+}
