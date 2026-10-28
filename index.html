@@ -242,7 +242,7 @@ footer strong{color:var(--gold)}
 
     <div class="panel">
       <h3>📋 تفاصيل وخيارات الطلب</h3>
-      <div class="location-note">📍 <strong>موقع المطعم:</strong> حورة، مقابل محلات بن مخاشن التجارية.<br>👨‍🍳 <strong>الإدارة:</strong> عبدالله بلعيش.</div>
+      <div class="location-note">📍 <strong>موقع المطعم:</strong> حورة، مقابل محلات بن مخاشن التجارية.<br>👨‍🍳 <strong>الإدارة: عبدالله بلعيش.</div>
       
       <label style="display:block; margin-bottom:8px; font-size:13px;">طريقة استلام الطلب *</label>
       <div class="order-type-container">
@@ -279,8 +279,9 @@ footer strong{color:var(--gold)}
           <select id="payment" required>
             <option value="">اختر طريقة الدفع</option>
             <option value="كاش عند الاستلام">كاش عند الاستلام</option>
-            <option value="الكريمي">الكريمي</option>
-            <option value="العمقي">العمقي</option>
+            <option value="العمقي (حساب: 254154133)">العمقي — حساب: 254154133</option>
+            <option value="الكريمي (حساب: 3166591952)">الكريمي — حساب: 3166591952</option>
+            <option value="بن دول (حساب: 23169949)">بن دول — حساب: 23169949</option>
           </select>
         </div>
         <div class="form-group"><label for="notes">ملاحظات إضافية (اختياري)</label><textarea id="notes" placeholder="أي تفاصيل إضافية عن طلبك"></textarea></div>
@@ -310,23 +311,25 @@ function closeSplash() {
 }
 
 const RESTAURANT_WHATSAPP = "967778363810";
-const DEVELOPER_WHATSAPP = "00967784074871";
+const DEVELOPER_WHATSAPP = "967778363810";
 
 const products = [
   {id:1,name:"تشكن فرايز",price:2000,category:"وجبات",emoji:"🍗",desc:"وجبة بطعم مميز"},
   {id:2,name:"فلافل ملكي",price:1000,category:"فلافل",emoji:"🧆",desc:"فلافل شهية ومقرمشة"},
   {id:3,name:"فلافل عادي",price:500,category:"فلافل",emoji:"🥙",desc:"وجبة فلافل لذيذة"},
-  {id:4,name:"زنجر ملكي",price:1500,category:"وجبات",emoji:"🍔",desc:"زنجر بطعم غني"},
-  {id:5,name:"زنجر عادي",price:1200,category:"وجبات",emoji:"🍔",desc:"وجبة زنجر لذيذة"},
+  {id:4,name:"زنجر ملكي",price:1300,category:"وجبات",emoji:"🍔",desc:"زنجر بطعم غني"},
+  {id:5,name:"زنجر عادي",price:1000,category:"وجبات",emoji:"🍔",desc:"وجبة زنجر لذيذة"},
   {id:6,name:"شاورما صاروخ",price:1000,category:"شاورما",emoji:"🌯",desc:"شاورما بحجم صاروخ"},
-  {id:7,name:"شاورما عادي",price:500,category:"شاورما",emoji:"🌮",desc:"شاورما شهية"},
-  {id:8,name:"طعمية",price:300,category:"فلافل",emoji:"🧆",desc:"طعمية طازجة"},
-  {id:9,name:"عصير مشكل",price:1000,category:"عصائر",emoji:"🍹",desc:"مزيج منعش من الفواكه"},
-  {id:10,name:"سانكويك",price:500,category:"عصائر",emoji:"🥤",desc:"مشروب بارد"},
-  {id:11,name:"مانجو طبيعي",price:500,category:"عصائر",emoji:"🥭",desc:"نكهة مانجو منعشة"},
-  {id:12,name:"عصير ليمون",price:500,category:"عصائر",emoji:"🍋",desc:"عصير ليمون منعش"},
-  {id:13,name:"فينتو",price:500,category:"عصائر",emoji:"🥤",desc:"مشروب بارد"},
-  {id:14,name:"شبس",price:null,category:"أخرى",emoji:"🍟",desc:"السعر حسب النوع والحجم"}
+  {id:7,name:"شاورما كبير صاروخ",price:1500,category:"شاورما",emoji:"🌯",desc:"شاورما حجم كبير ومميز"},
+  {id:8,name:"شاورما عادي",price:500,category:"شاورما",emoji:"🌮",desc:"شاورما شهية"},
+  {id:9,name:"طعمية",price:300,category:"فلافل",emoji:"🧆",desc:"طعمية طازجة"},
+  {id:10,name:"عصير مشكل",price:1000,category:"عصائر",emoji:"🍹",desc:"مزيج منعش من الفواكه"},
+  {id:11,name:"توت عصير",price:800,category:"عصائر",emoji:"🧃",desc:"عصير توت منعش ولذيذ"},
+  {id:12,name:"سانكويك",price:500,category:"عصائر",emoji:"🥤",desc:"مشروب بارد"},
+  {id:13,name:"مانجو طبيعي",price:500,category:"عصائر",emoji:"🥭",desc:"نكهة مانجو منعشة"},
+  {id:14,name:"عصير ليمون",price:500,category:"عصائر",emoji:"🍋",desc:"عصير ليمون منعش"},
+  {id:15,name:"فينتو",price:500,category:"عصائر",emoji:"🥤",desc:"مشروب بارد"},
+  {id:16,name:"شبس",price:null,category:"أخرى",emoji:"🍟",desc:"السعر حسب النوع والحجم"}
 ];
 
 const deliveryPrices = {
