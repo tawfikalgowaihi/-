@@ -6,13 +6,20 @@
 <meta name="theme-color" content="#10130f">
 <title>ملك الفلافل | حورة</title>
 
-<!-- وسوم المعاينة لظهور الشعار والمعلومات عند مشاركة الرابط في الواتساب -->
+<!-- إعدادات تطبيق الويب الخفيف (PWA) والمعاينة للواتساب -->
 <meta property="og:title" content="ملك الفلافل | حورة" />
 <meta property="og:description" content="أطيب المأكولات، الفلافل المقرمشة، الشاورما والعصائر المنعشة. اطلب وجبتك الآن عبر الواتساب!" />
 <meta property="og:image" content="https://i.ibb.co/TDjg5y8b/1793176994369.jpg" />
 <meta property="og:url" content="https://tawfikalgowaihi.github.io/-/" />
 <meta property="og:type" content="website" />
 <link rel="icon" type="image/jpeg" href="https://i.ibb.co/TDjg5y8b/1793176994369.jpg">
+
+<!-- دعم التثبيت كتطبيق على الهواتف (iOS & Android) -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="ملك الفلافل">
+<link rel="apple-touch-icon" href="https://i.ibb.co/TDjg5y8b/1793176994369.jpg">
+<link rel="manifest" href="manifest.json">
 
 <style>
 :root{--gold:#ffc247;--orange:#ff792e;--dark:#10130f;--white:#fffaf0;--muted:#b8b9ad;--green:#25d366}
@@ -27,14 +34,12 @@ a{color:inherit;text-decoration:none}
 .bg:before{top:10%;right:-100px}.bg:after{bottom:8%;left:-100px;background:#ffc24720;animation-delay:-5s}
 @keyframes glow{to{transform:translate(40px,-30px) scale(1.3)}}
 
-/* تنسيق الهيدر مع إضافة الشعار الصغير بجانب العنوان */
 header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 5%;background:#10130fee;border-bottom:1px solid #ffffff12;backdrop-filter:blur(14px)}
 .brand{display:flex;align-items:center;gap:12px}
 .header-logo-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 10px #ffc24740}
 .brand h1{margin:0;font-size:19px}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:11px}
 .cart-top{border:1px solid #ffc24765;border-radius:13px;padding:10px 13px;color:var(--gold);background:#ffc24710;white-space:nowrap}
 
-/* تنسيق الشعار الكبير فوق الواجهة الرئيسية */
 .main-hero-logo{display:block;margin:0 auto 20px;width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 8px 25px #0008,0 0 15px #ffc24735}
 
 .hero{padding:40px 6% 35px;text-align:center}.badge{display:inline-block;border:1px solid #ffc24755;background:#ffc24712;color:var(--gold);border-radius:30px;padding:8px 15px;font-size:13px}
@@ -106,7 +111,6 @@ footer strong{color:var(--gold)}
 
 <main>
 <section class="hero" id="home">
-  <!-- الشعار الفخم الكبير في أعلى الواجهة الرئيسيّة -->
   <img src="https://i.ibb.co/TDjg5y8b/1793176994369.jpg" alt="ملك الفلافل" class="main-hero-logo">
   
   <span class="badge">🔥 نكهة مميزة وطازجة يوميًا</span>
@@ -198,8 +202,8 @@ footer strong{color:var(--gold)}
     </div>
   </div>
 </section>
-</main>
-<footer>
+                                                                                                                                                 </main>
+                                                                                                                                                 <footer>
   <strong>ملك الفلافل 🍔</strong><br>
   حورة — مقابل محلات بن مخاشن التجارية<br>
   الإدارة: عبدالله بلعيش<br>
