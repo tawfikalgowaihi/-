@@ -29,6 +29,81 @@ body{margin:0;font-family:Tahoma,Arial,sans-serif;color:var(--white);background:
 button,input,select,textarea{font:inherit}
 button{cursor:pointer}
 a{color:inherit;text-decoration:none}
+
+/* --- واجهة الترحيب الفخمة (Splash Screen) --- */
+#welcomeSplash {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: radial-gradient(circle at center, #1c201a 0%, #0d0f0d 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  transition: opacity 0.5s ease, visibility 0.5s ease;
+}
+#welcomeSplash.hide {
+  opacity: 0;
+  visibility: hidden;
+}
+.splash-card {
+  background: linear-gradient(145deg, #1c201a, #10130f);
+  border: 2px solid var(--gold);
+  border-radius: 28px;
+  padding: 35px 25px;
+  text-align: center;
+  width: 100%;
+  max-width: 360px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.8), 0 0 25px rgba(255, 194, 71, 0.25);
+  animation: floatCard 3s ease-in-out infinite alternate;
+}
+@keyframes floatCard {
+  0% { transform: translateY(0); }
+  100% { transform: translateY(-8px); }
+}
+.splash-logo {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  border: 3px solid var(--gold);
+  box-shadow: 0 0 18px rgba(255, 194, 71, 0.5);
+  margin: 0 auto 18px;
+  object-fit: cover;
+  display: block;
+}
+.splash-card h2 {
+  margin: 0 0 8px;
+  color: var(--gold);
+  font-size: 24px;
+}
+.splash-card p.welcome-msg {
+  margin: 0 0 22px;
+  color: var(--muted);
+  font-size: 13px;
+  line-height: 1.8;
+}
+.enter-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  width: 100%;
+  padding: 14px 0;
+  background: linear-gradient(135deg, var(--gold), var(--orange));
+  color: #211508;
+  border-radius: 14px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  box-shadow: 0 6px 20px rgba(255, 121, 46, 0.45);
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.enter-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(255, 121, 46, 0.65);
+}
+
 .bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(circle at 15% 20%,#ff792e20,transparent 32%),radial-gradient(circle at 85% 70%,#ffc24716,transparent 30%),var(--dark)}
 .bg:before,.bg:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);animation:glow 12s ease-in-out infinite alternate;background:#ff792e25}
 .bg:before{top:10%;right:-100px}.bg:after{bottom:8%;left:-100px;background:#ffc24720;animation-delay:-5s}
@@ -99,6 +174,19 @@ footer strong{color:var(--gold)}
 </style>
 </head>
 <body>
+
+<!-- واجهة الترحيب (Splash Screen) الفخمة -->
+<div id="welcomeSplash">
+  <div class="splash-card">
+    <img src="https://i.ibb.co/JjTKq4W1/20261028-131026.png" alt="ملك الفلافل" class="splash-logo">
+    <h2>ملك الفلافل</h2>
+    <p class="welcome-msg">أهلاً بك في البوابة الرسمية للطلب أونلاين.<br>استمتع بألذ المأكولات والفلافل المقرمشة في حورة!</p>
+    <button class="enter-btn" onclick="closeSplash()">
+      <span>🚀</span> دخول إلى الموقع
+    </button>
+  </div>
+</div>
+
 <div class="bg"></div>
 
 <header>
@@ -215,8 +303,14 @@ footer strong{color:var(--gold)}
 <div class="toast" id="toast"></div>
 
 <script>
+// دالة إخفاء شاشة الترحيب بسلاسة عند الضغط على زر الدخول
+function closeSplash() {
+  const splash = document.getElementById("welcomeSplash");
+  splash.classList.add("hide");
+}
+
 const RESTAURANT_WHATSAPP = "967778363810";
-const DEVELOPER_WHATSAPP = "967784074871";
+const DEVELOPER_WHATSAPP = "00967784074871";
 
 const products = [
   {id:1,name:"تشكن فرايز",price:2000,category:"وجبات",emoji:"🍗",desc:"وجبة بطعم مميز"},
