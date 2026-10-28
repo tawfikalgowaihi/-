@@ -5,6 +5,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#10130f">
 <title>ملك الفلافل | حورة</title>
+
+<!-- وسوم المعاينة لظهور الشعار والمعلومات عند مشاركة الرابط في الواتساب -->
+<meta property="og:title" content="ملك الفلافل | حورة" />
+<meta property="og:description" content="أطيب المأكولات، الفلافل المقرمشة، الشاورما والعصائر المنعشة. اطلب وجبتك الآن عبر الواتساب!" />
+<meta property="og:image" content="https://i.ibb.co/TDjg5y8b/1793176994369.jpg" />
+<meta property="og:url" content="https://tawfikalgowaihi.github.io/-/" />
+<meta property="og:type" content="website" />
+<link rel="icon" type="image/jpeg" href="https://i.ibb.co/TDjg5y8b/1793176994369.jpg">
+
 <style>
 :root{--gold:#ffc247;--orange:#ff792e;--dark:#10130f;--white:#fffaf0;--muted:#b8b9ad;--green:#25d366}
 *{box-sizing:border-box}
@@ -17,12 +26,19 @@ a{color:inherit;text-decoration:none}
 .bg:before,.bg:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);animation:glow 12s ease-in-out infinite alternate;background:#ff792e25}
 .bg:before{top:10%;right:-100px}.bg:after{bottom:8%;left:-100px;background:#ffc24720;animation-delay:-5s}
 @keyframes glow{to{transform:translate(40px,-30px) scale(1.3)}}
-header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 5%;background:#10130fee;border-bottom:1px solid #ffffff12;backdrop-filter:blur(14px)}
-.brand{display:flex;align-items:center;gap:10px}.logo{display:grid;place-items:center;width:47px;height:47px;border-radius:15px;background:linear-gradient(135deg,var(--gold),var(--orange));color:#211508;font-size:25px}
-.brand h1{margin:0;font-size:19px}.brand small{display:block;margin-top:4px;color:var(--muted);font-size:11px}
+
+/* تنسيق الهيدر مع إضافة الشعار الصغير بجانب العنوان */
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:10px 5%;background:#10130fee;border-bottom:1px solid #ffffff12;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:12px}
+.header-logo-img{width:48px;height:48px;border-radius:50%;object-fit:cover;border:2px solid var(--gold);box-shadow:0 0 10px #ffc24740}
+.brand h1{margin:0;font-size:19px}.brand small{display:block;margin-top:2px;color:var(--muted);font-size:11px}
 .cart-top{border:1px solid #ffc24765;border-radius:13px;padding:10px 13px;color:var(--gold);background:#ffc24710;white-space:nowrap}
-.hero{padding:55px 6% 42px;text-align:center}.badge{display:inline-block;border:1px solid #ffc24755;background:#ffc24712;color:var(--gold);border-radius:30px;padding:8px 15px;font-size:13px}
-.hero h2{margin:22px 0 12px;font-size:clamp(30px,7vw,54px);line-height:1.4}.hero h2 span{color:var(--gold)}
+
+/* تنسيق الشعار الكبير فوق الواجهة الرئيسية */
+.main-hero-logo{display:block;margin:0 auto 20px;width:150px;height:150px;border-radius:50%;object-fit:cover;border:3px solid var(--gold);box-shadow:0 8px 25px #0008,0 0 15px #ffc24735}
+
+.hero{padding:40px 6% 35px;text-align:center}.badge{display:inline-block;border:1px solid #ffc24755;background:#ffc24712;color:var(--gold);border-radius:30px;padding:8px 15px;font-size:13px}
+.hero h2{margin:18px 0 12px;font-size:clamp(28px,6vw,48px);line-height:1.4}.hero h2 span{color:var(--gold)}
 .hero p{color:var(--muted);line-height:2;max-width:580px;margin:0 auto 24px}
 .actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
 .btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;border:0;border-radius:13px;padding:13px 20px;font-weight:bold;transition:.2s}
@@ -63,7 +79,6 @@ header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-
 .location-note{border-radius:12px;padding:12px;background:#ffc2470d;border:1px solid #ffc24725;color:#e9d9b7;font-size:12px;line-height:1.9;margin-bottom:15px}
 .full-btn{width:100%;margin-top:8px}.notice{color:var(--muted);font-size:11px;line-height:1.8;margin-top:12px}
 
-/* تصميم زرين الخيارات للتوصيل أو الاستلام */
 .order-type-container{display:flex;gap:10px;margin-bottom:15px}
 .type-btn{flex:1;padding:12px 8px;border:1px solid #ffffff20;border-radius:12px;background:#ffffff0b;color:var(--white);text-align:center;font-weight:bold;font-size:13px}
 .type-btn.active{background:linear-gradient(135deg,var(--gold),var(--orange));color:#211508;border-color:var(--gold)}
@@ -74,7 +89,7 @@ footer strong{color:var(--gold)}
 @keyframes pulse{0%{box-shadow:0 0 0 0 #25d36670}70%{box-shadow:0 0 0 15px #25d36600}100%{box-shadow:0 0 0 0 #25d36600}}
 .toast{position:fixed;bottom:92px;right:50%;transform:translateX(50%);z-index:30;padding:12px 18px;background:#292e24;border:1px solid #ffc24760;border-radius:12px;box-shadow:0 10px 30px #0005;font-size:13px;display:none}
 .toast.show{display:block}
-@media(max-width:700px){.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.order-layout{grid-template-columns:1fr}.hero{padding-top:42px}.section{padding-left:4%;padding-right:4%}}
+@media(max-width:700px){.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.order-layout{grid-template-columns:1fr}.hero{padding-top:32px}.section{padding-left:4%;padding-right:4%}}
 @media(max-width:360px){.products,.features{grid-template-columns:1fr}}
 </style>
 </head>
@@ -83,7 +98,7 @@ footer strong{color:var(--gold)}
 
 <header>
   <a class="brand" href="#home">
-    <div class="logo">🍔</div>
+    <img src="https://i.ibb.co/TDjg5y8b/1793176994369.jpg" alt="ملك الفلافل" class="header-logo-img">
     <div><h1>ملك الفلافل</h1><small>الطعم الذي يستحق التجربة</small></div>
   </a>
   <button class="cart-top" onclick="goToCart()">🛒 السلة <span id="cartCount">0</span></button>
@@ -91,6 +106,9 @@ footer strong{color:var(--gold)}
 
 <main>
 <section class="hero" id="home">
+  <!-- الشعار الفخم الكبير في أعلى الواجهة الرئيسيّة -->
+  <img src="https://i.ibb.co/TDjg5y8b/1793176994369.jpg" alt="ملك الفلافل" class="main-hero-logo">
+  
   <span class="badge">🔥 نكهة مميزة وطازجة يوميًا</span>
   <h2>مرحبًا بك في<br><span>ملك الفلافل</span></h2>
   <p>وجبات لذيذة، فلافل مقرمشة، شاورما شهية وعصائر منعشة. اختر طلبك وأرسله مباشرة عبر واتساب.</p>
@@ -134,7 +152,6 @@ footer strong{color:var(--gold)}
       <h3>📋 تفاصيل وخيارات الطلب</h3>
       <div class="location-note">📍 <strong>موقع المطعم:</strong> حورة، مقابل محلات بن مخاشن التجارية.<br>👨‍🍳 <strong>الإدارة:</strong> عبدالله بلعيش.</div>
       
-      <!-- إضافة خيار استلام من المحل أو توصيل -->
       <label style="display:block; margin-bottom:8px; font-size:13px;">طريقة استلام الطلب *</label>
       <div class="order-type-container">
         <button type="button" class="type-btn active" id="btnDelivery" onclick="setOrderType('delivery')">🛵 توصيل طلبك للبيت</button>
@@ -201,7 +218,7 @@ const products = [
   {id:1,name:"تشكن فرايز",price:2000,category:"وجبات",emoji:"🍗",desc:"وجبة بطعم مميز"},
   {id:2,name:"فلافل ملكي",price:1000,category:"فلافل",emoji:"🧆",desc:"فلافل شهية ومقرمشة"},
   {id:3,name:"فلافل عادي",price:500,category:"فلافل",emoji:"🥙",desc:"وجبة فلافل لذيذة"},
-  {id:4,name:"دبل زنجر",price:1300,category:"وجبات",emoji:"🍔",desc:"زنجر بطعم غني"},
+  {id:4,name:"زنجر ملكي",price:1300,category:"وجبات",emoji:"🍔",desc:"زنجر بطعم غني"},
   {id:5,name:"زنجر عادي",price:1000,category:"وجبات",emoji:"🍔",desc:"وجبة زنجر لذيذة"},
   {id:6,name:"شاورما صاروخ",price:1000,category:"شاورما",emoji:"🌯",desc:"شاورما بحجم صاروخ"},
   {id:7,name:"شاورما عادي",price:500,category:"شاورما",emoji:"🌮",desc:"شاورما شهية"},
@@ -232,7 +249,7 @@ const deliveryPrices = {
 
 let cart = [];
 let currentCategory = "فلافل";
-let orderType = "delivery"; // التوصيل هو الخيار الافتراضي
+let orderType = "delivery";
 
 function setOrderType(type) {
   orderType = type;
