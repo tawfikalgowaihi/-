@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#10130f">
+<title>ملك الفلافل | حورة</title>
+<style>
+:root{--gold:#ffc247;--orange:#ff792e;--dark:#10130f;--white:#fffaf0;--muted:#b8b9ad;--green:#25d366}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;font-family:Tahoma,Arial,sans-serif;color:var(--white);background:var(--dark);overflow-x:hidden}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{color:inherit;text-decoration:none}
+.bg{position:fixed;inset:0;z-index:-1;overflow:hidden;background:radial-gradient(circle at 15% 20%,#ff792e20,transparent 32%),radial-gradient(circle at 85% 70%,#ffc24716,transparent 30%),var(--dark)}
+.bg:before,.bg:after{content:"";position:absolute;width:260px;height:260px;border-radius:50%;filter:blur(80px);animation:glow 12s ease-in-out infinite alternate;background:#ff792e25}
+.bg:before{top:10%;right:-100px}.bg:after{bottom:8%;left:-100px;background:#ffc24720;animation-delay:-5s}
+@keyframes glow{to{transform:translate(40px,-30px) scale(1.3)}}
+header{position:sticky;top:0;z-index:10;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:13px 5%;background:#10130fee;border-bottom:1px solid #ffffff12;backdrop-filter:blur(14px)}
+.brand{display:flex;align-items:center;gap:10px}.logo{display:grid;place-items:center;width:47px;height:47px;border-radius:15px;background:linear-gradient(135deg,var(--gold),var(--orange));color:#211508;font-size:25px}
+.brand h1{margin:0;font-size:19px}.brand small{display:block;margin-top:4px;color:var(--muted);font-size:11px}
+.cart-top{border:1px solid #ffc24765;border-radius:13px;padding:10px 13px;color:var(--gold);background:#ffc24710;white-space:nowrap}
+.hero{padding:55px 6% 42px;text-align:center}.badge{display:inline-block;border:1px solid #ffc24755;background:#ffc24712;color:var(--gold);border-radius:30px;padding:8px 15px;font-size:13px}
+.hero h2{margin:22px 0 12px;font-size:clamp(30px,7vw,54px);line-height:1.4}.hero h2 span{color:var(--gold)}
+.hero p{color:var(--muted);line-height:2;max-width:580px;margin:0 auto 24px}
+.actions{display:flex;justify-content:center;flex-wrap:wrap;gap:10px}
+.btn{display:inline-flex;justify-content:center;align-items:center;gap:7px;border:0;border-radius:13px;padding:13px 20px;font-weight:bold;transition:.2s}
+.btn:hover{transform:translateY(-2px)}.gold-btn{background:linear-gradient(135deg,var(--gold),var(--orange));color:#211508}.dark-btn{background:#ffffff0c;color:var(--white);border:1px solid #ffffff20}
+.features{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:750px;margin:25px auto 0}
+.feature{padding:15px 8px;background:#ffffff08;border:1px solid #ffffff12;border-radius:15px}
+.feature b{display:block;margin-bottom:6px;color:var(--gold);font-size:14px}.feature small{color:var(--muted);font-size:11px}
+.section{padding:25px 5%;max-width:1200px;margin:auto}
+.heading{display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.heading h2{margin:0;font-size:24px}.heading p{margin:7px 0 0;color:var(--muted);font-size:13px}
+.categories{display:flex;gap:8px;overflow-x:auto;padding:5px 0 15px}
+.category-btn{flex-shrink:0;padding:10px 16px;border:1px solid #ffffff1b;background:#ffffff08;color:var(--white);border-radius:30px}
+.category-btn.active{background:var(--gold);color:#211508;border-color:var(--gold);font-weight:bold}
+.products{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.product{overflow:hidden;border:1px solid #ffffff12;border-radius:18px;background:linear-gradient(145deg,#20251d,#171a15);transition:.2s}
+.product:hover{transform:translateY(-3px);border-color:#ffc24760}
+.art{min-height:115px;display:grid;place-items:center;position:relative;background:radial-gradient(circle at center,#ffc24720,transparent 65%),#ffffff04;font-size:58px}
+.tag{position:absolute;top:9px;right:9px;background:var(--gold);color:#211508;font-size:10px;padding:5px 8px;border-radius:20px}
+.info{padding:12px}.info h3{margin:0 0 7px;font-size:15px}.info p{margin:0 0 12px;color:var(--muted);font-size:12px;line-height:1.7}
+.product-bottom{display:flex;align-items:center;justify-content:space-between;gap:5px}
+.price{color:var(--gold);font-weight:bold;font-size:14px}.add-btn{border:0;border-radius:10px;padding:9px 11px;background:var(--gold);color:#211508;font-weight:bold}
+.order-layout{display:grid;grid-template-columns:1fr 1fr;gap:16px;align-items:start}
+.panel{border:1px solid #ffffff15;border-radius:18px;padding:18px;background:#ffffff07}
+.panel h3{margin:0 0 16px;font-size:19px}
+.empty{padding:25px 10px;text-align:center;color:var(--muted);line-height:2}
+.cart-item{display:flex;justify-content:space-between;gap:10px;padding:12px 0;border-bottom:1px solid #ffffff12}
+.item-name{font-weight:bold;font-size:14px}.cart-item small{display:block;color:var(--muted);margin-top:5px}
+.quantity{display:flex;align-items:center;gap:8px;margin-top:8px}
+.quantity button{width:27px;height:27px;border:1px solid #ffffff25;border-radius:8px;background:#ffffff0b;color:var(--white)}
+.remove-btn{background:none;border:0;color:#ff927e;font-size:12px;margin-top:5px}
+.summary{border-top:1px solid #ffffff20;margin-top:15px;padding-top:12px}
+.summary-row{display:flex;justify-content:space-between;gap:10px;margin:12px 0;font-size:14px}
+.summary-row.total{color:var(--gold);font-size:19px;font-weight:bold}
+.form-group{margin-bottom:13px}.form-group label{display:block;margin-bottom:7px;font-size:13px;color:#e8e4d8}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #ffffff20;border-radius:11px;background:#10130f;color:var(--white);outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--gold)}
+.form-group textarea{resize:vertical;min-height:75px}
+.location-note{border-radius:12px;padding:12px;background:#ffc2470d;border:1px solid #ffc24725;color:#e9d9b7;font-size:12px;line-height:1.9;margin-bottom:15px}
+.full-btn{width:100%;margin-top:8px}.notice{color:var(--muted);font-size:11px;line-height:1.8;margin-top:12px}
+footer{text-align:center;padding:35px 20px 90px;margin-top:35px;border-top:1px solid #ffffff12;color:var(--muted);font-size:13px;line-height:2}
+footer strong{color:var(--gold)}
+.whatsapp-float{position:fixed;bottom:20px;left:18px;z-index:20;width:60px;height:60px;display:grid;place-items:center;border-radius:50%;background:var(--green);color:white;font-size:29px;box-shadow:0 0 0 0 #25d36680;animation:pulse 2s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 #25d36670}70%{box-shadow:0 0 0 15px #25d36600}100%{box-shadow:0 0 0 0 #25d36600}}
+.toast{position:fixed;bottom:92px;right:50%;transform:translateX(50%);z-index:30;padding:12px 18px;background:#292e24;border:1px solid #ffc24760;border-radius:12px;box-shadow:0 10px 30px #0005;font-size:13px;display:none}
+.toast.show{display:block}
+@media(max-width:700px){.products{grid-template-columns:repeat(2,minmax(0,1fr));gap:10px}.order-layout{grid-template-columns:1fr}.hero{padding-top:42px}.section{padding-left:4%;padding-right:4%}}
+@media(max-width:360px){.products,.features{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<div class="bg"></div>
+
+<header>
+  <a class="brand" href="#home">
+    <div class="logo">🍔</div>
+    <div><h1>ملك الفلافل</h1><small>الطعم الذي يستحق التجربة</small></div>
+  </a>
+  <button class="cart-top" onclick="goToCart()">🛒 السلة <span id="cartCount">0</span></button>
+</header>
+
+<main>
+<section class="hero" id="home">
+  <span class="badge">🔥 نكهة مميزة وطازجة يوميًا</span>
+  <h2>مرحبًا بك في<br><span>ملك الفلافل</span></h2>
+  <p>وجبات لذيذة، فلافل مقرمشة، شاورما شهية وعصائر منعشة. اختر طلبك وأرسله مباشرة عبر واتساب.</p>
+  <div class="actions">
+    <a class="btn gold-btn" href="#menu">🍟 تصفح القائمة</a>
+    <a class="btn dark-btn" href="#order">🛵 اطلب الآن</a>
+  </div>
+  <div class="features">
+    <div class="feature"><b>🥙 طازج ولذيذ</b><small>خيارات متنوعة</small></div>
+    <div class="feature"><b>🛵 خدمة توصيل</b><small>حسب المنطقة</small></div>
+    <div class="feature"><b>💬 واتساب</b><small>طلب بخطوات بسيطة</small></div>
+  </div>
+</section>
+
+<section class="section" id="menu">
+  <div class="heading"><div><h2>🍽️ قائمة الطعام</h2><p>اختر الأصناف وأضفها إلى سلتك</p></div></div>
+  <div class="categories" id="categories">
+    <button class="category-btn active" onclick="filterProducts('فلافل',this)">🧆 الفلافل</button>
+    <button class="category-btn" onclick="filterProducts('وجبات',this)">🍔 الوجبات</button>
+    <button class="category-btn" onclick="filterProducts('شاورما',this)">🌯 الشاورما</button>
+    <button class="category-btn" onclick="filterProducts('عصائر',this)">🥤 العصائر</button>
+    <button class="category-btn" onclick="filterProducts('أخرى',this)">🍟 أخرى</button>
+  </div>
+  <div class="products" id="products"></div>
+</section>
+
+<section class="section" id="order">
+  <div class="heading"><div><h2>🛒 سلة الطلبات</h2><p>راجع طلبك ثم أدخل بيانات التوصيل</p></div></div>
+  <div class="order-layout">
+    <div class="panel">
+      <h3>طلبك الحالي</h3>
+      <div id="cartItems"><div class="empty">🛍️<br>سلتك فارغة حاليًا<br>اختر وجباتك من القائمة أولًا.</div></div>
+      <div class="summary">
+        <div class="summary-row"><span>قيمة المنتجات</span><strong id="subtotal">0 ريال</strong></div>
+        <div class="summary-row"><span>رسوم التوصيل</span><strong id="deliveryFee">0 ريال</strong></div>
+        <div class="summary-row total"><span>الإجمالي</span><strong id="total">0 ريال</strong></div>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h3>📋 بيانات التوصيل</h3>
+      <div class="location-note">📍 <strong>موقع المطعم:</strong> حورة، مقابل محلات بن مخاشن التجارية.<br>👨‍🍳 <strong>الإدارة:</strong> عبدالله بلعيش.</div>
+      <form id="orderForm">
+        <div class="form-group"><label for="customerName">الاسم الكامل *</label><input id="customerName" placeholder="اكتب اسمك" required></div>
+        <div class="form-group"><label for="customerPhone">رقم الهاتف *</label><input id="customerPhone" type="tel" placeholder="رقم للتواصل معك" required></div>
+        <div class="form-group">
+          <label for="area">منطقة التوصيل *</label>
+          <select id="area" required>
+            <option value="">اختر منطقتك</option>
+            <option value="حورة">حورة — 500 ريال</option>
+            <option value="سدبة">سدبة — 1500 ريال</option>
+            <option value="بدرة">بدرة — 1500 ريال</option>
+            <option value="ديار الصريمان">ديار الصريمان — 1500 ريال</option>
+            <option value="الحدبة">الحدبة — 1500 ريال</option>
+            <option value="عرض المخاشن">عرض المخاشن — 1500 ريال</option>
+            <option value="الجويب">الجويب — 1500 ريال</option>
+            <option value="الحوطة">الحوطة — 2000 ريال</option>
+            <option value="القفل">القفل — 2000 ريال</option>
+            <option value="لخماس">لخماس — 2000 ريال</option>
+            <option value="فضح">فضح — 2000 ريال</option>
+            <option value="الخدود">الخدود — 2000 ريال</option>
+            <option value="منطقة أبعد">منطقة أبعد — 2500 ريال</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="address">تفاصيل الموقع أو أقرب معلم *</label><input id="address" placeholder="القرية، الحي، أقرب معلم" required></div>
+        <div class="form-group">
+          <label for="payment">طريقة الدفع *</label>
+          <select id="payment" required>
+            <option value="">اختر طريقة الدفع</option>
+            <option value="كاش عند الاستلام">كاش عند الاستلام</option>
+            <option value="الكريمي">الكريمي</option>
+            <option value="العمقي">العمقي</option>
+          </select>
+        </div>
+        <div class="form-group"><label for="notes">ملاحظات إضافية (اختياري)</label><textarea id="notes" placeholder="أي تفاصيل إضافية عن طلبك"></textarea></div>
+        <button class="btn gold-btn full-btn" type="submit">📲 إرسال الطلب عبر واتساب</button>
+        <p class="notice">ستُفتح محادثة واتساب برسالة تحتوي على تفاصيل طلبك. راجع الرسالة واضغط إرسال داخل واتساب لتأكيد الطلب.</p>
+      </form>
+    </div>
+  </div>
+</section>
+                                                                                                          </main>
+                                                                                                          <footer>
+  <strong>ملك الفلافل 🍔</strong><br>
+  حورة — مقابل محلات بن مخاشن التجارية<br>
+  الإدارة: عبدالله بلعيش<br>
+  <span style="color: var(--gold); display: inline-block; margin-top: 8px;">تصميم وتطوير: توفيق الجويحي</span><br>
+  <small>الأسعار ورسوم التوصيل بالريال اليمني.</small>
+</footer>
+
+<a class="whatsapp-float" id="whatsappFloat" href="#" aria-label="طلب تصميم موقع" title="تواصل لتصميم موقع إلكتروني">☏</a>
+<div class="toast" id="toast"></div>
+
+<script>
+const RESTAURANT_WHATSAPP = "967778363810";
+const DEVELOPER_WHATSAPP = "00967784074871";
+
+const products = [
+  {id:1,name:"تشكن فرايز",price:2000,category:"وجبات",emoji:"🍗",desc:"وجبة بطعم مميز"},
+  {id:2,name:"فلافل ملكي",price:1000,category:"فلافل",emoji:"🧆",desc:"فلافل شهية ومقرمشة"},
+  {id:3,name:"فلافل عادي",price:500,category:"فلافل",emoji:"🥙",desc:"وجبة فلافل لذيذة"},
+  {id:4,name:"دبل زنجو",price:1500,category:"وجبات",emoji:"🍔",desc:"زنجر بطعم غني"},
+  {id:5,name:"زنجر عادي",price:1000,category:"وجبات",emoji:"🍔",desc:"وجبة زنجر لذيذة"},
+  {id:6,name:"شاورما صاروخ",price:1000,category:"شاورما",emoji:"🌯",desc:"شاورما بحجم صاروخ"},
+  {id:7,name:"شاورما عادي",price:500,category:"شاورما",emoji:"🌮",desc:"شاورما شهية"},
+  {id:8,name:"طعمية",price:300,category:"فلافل",emoji:"🧆",desc:"طعمية طازجة"},
+  {id:9,name:"عصير مشكل",price:1000,category:"عصائر",emoji:"🍹",desc:"مزيج منعش من الفواكه"},
+  {id:10,name:"سانكويك",price:500,category:"عصائر",emoji:"🥤",desc:"مشروب بارد"},
+  {id:11,name:"مانجو طبيعي",price:500,category:"عصائر",emoji:"🥭",desc:"نكهة مانجو منعشة"},
+  {id:12,name:"عصير ليمون",price:500,category:"عصائر",emoji:"🍋",desc:"عصير ليمون منعش"},
+  {id:13,name:"فينتو",price:500,category:"عصائر",emoji:"🥤",desc:"مشروب بارد"},
+  {id:14,name:"شبس",price:null,category:"أخرى",emoji:"🍟",desc:"السعر حسب النوع والحجم"}
+];
+
+const deliveryPrices = {
+  "حورة":500,
+  "سدبة":1500,
+  "بدرة":1500,
+  "ديار الصريمان":1500,
+  "الحدبة":1500,
+  "عرض المخاشن":1500,
+  "الجويب":1500,
+  "الحوطة":2000,
+  "القفل":2000,
+  "لخماس":2000,
+  "فضح":2000,
+  "الخدود":2000,
+  "منطقة أبعد":2500
+};
+
+let cart = [];
+let currentCategory = "فلافل";
+
+function money(amount) {
+  return Number(amount).toLocaleString("en-US") + " ريال";
+}
+
+function showToast(message) {
+  const toast = document.getElementById("toast");
+  toast.textContent = message;
+  toast.classList.add("show");
+  clearTimeout(showToast.timer);
+  showToast.timer = setTimeout(() => {
+    toast.classList.remove("show");
+  }, 2800);
+}
+
+function renderProducts() {
+  const container = document.getElementById("products");
+  const visible = products.filter(product => product.category === currentCategory);
+
+  container.innerHTML = visible.map(product => `
+    <article class="product">
+      <div class="art">
+        <span>${product.emoji}</span>
+        ${product.id === 2 ? '<span class="tag">الأكثر طلبًا</span>' : ""}
+      </div>
+      <div class="info">
+        <h3>${product.name}</h3>
+        <p>${product.desc}</p>
+        <div class="product-bottom">
+          <span class="price">
+            ${product.price === null ? "حسب السعر" : money(product.price)}
+          </span>
+          <button class="add-btn" onclick="addToCart(${product.id})">+ أضف</button>
+        </div>
+      </div>
+    </article>
+  `).join("");
+}
+
+function filterProducts(category, button) {
+  currentCategory = category;
+
+  document.querySelectorAll(".category-btn").forEach(btn => {
+    btn.classList.remove("active");
+  });
+
+  button.classList.add("active");
+  renderProducts();
+}
+
+function addToCart(id) {
+  const product = products.find(item => item.id === id);
+  if (!product) return;
+
+  if (product.price === null) {
+    showToast("يرجى التأكد من سعر الشبس مع المطعم.");
+    return;
+  }
+
+  const existing = cart.find(item => item.id === id);
+
+  if (existing) {
+    existing.quantity++;
+  } else {
+    cart.push({...product, quantity:1});
+  }
+
+  renderCart();
+  showToast("تمت إضافة " + product.name + " إلى السلة");
+}
+
+function changeQuantity(id, change) {
+  const item = cart.find(product => product.id === id);
+  if (!item) return;
+
+  item.quantity += change;
+
+  if (item.quantity <= 0) {
+    cart = cart.filter(product => product.id !== id);
+  }
+
+  renderCart();
+}
+
+function removeFromCart(id) {
+  cart = cart.filter(item => item.id !== id);
+  renderCart();
+}
+
+function getSubtotal() {
+  return cart.reduce((sum, item) => sum + item.price * item.quantity, 0);
+}
+
+function getDeliveryFee() {
+  const area = document.getElementById("area").value;
+  return deliveryPrices[area] || 0;
+}
+
+function renderCart() {
+  const container = document.getElementById("cartItems");
+  const count = cart.reduce((sum, item) => sum + item.quantity, 0);
+
+  document.getElementById("cartCount").textContent = count;
+
+  if (cart.length === 0) {
+    container.innerHTML = `
+      <div class="empty">
+        🛍️<br>سلتك فارغة حاليًا<br>
+        اختر وجباتك من القائمة أولًا.
+      </div>`;
+  } else {
+    container.innerHTML = cart.map(item => `
+      <div class="cart-item">
+        <div>
+          <div class="item-name">${item.emoji} ${item.name}</div>
+          <small>${money(item.price)} للواحد</small>
+          <div class="quantity">
+            <button type="button" onclick="changeQuantity(${item.id},-1)">−</button>
+            <strong>${item.quantity}</strong>
+            <button type="button" onclick="changeQuantity(${item.id},1)">+</button>
+          </div>
+          <button class="remove-btn" type="button" onclick="removeFromCart(${item.id})">حذف الصنف</button>
+        </div>
+        <strong class="price">
+          ${money(item.price * item.quantity)}
+        </strong>
+      </div>
+    `).join("");
+  }
+
+  updateTotals();
+}
+
+function updateTotals() {
+  const subtotal = getSubtotal();
+  const delivery = getDeliveryFee();
+
+  document.getElementById("subtotal").textContent = money(subtotal);
+  document.getElementById("deliveryFee").textContent = money(delivery);
+  document.getElementById("total").textContent = money(subtotal + delivery);
+}
+
+function goToCart() {
+  document.getElementById("order").scrollIntoView({
+    behavior:"smooth"
+  });
+}
+
+document.getElementById("area").addEventListener("change", updateTotals);
+
+document.getElementById("orderForm").addEventListener("submit", function(event) {
+  event.preventDefault();
+
+  if (cart.length === 0) {
+    showToast("أضف وجبة واحدة على الأقل إلى السلة أولًا.");
+    goToCart();
+    return;
+  }
+
+  const name = document.getElementById("customerName").value.trim();
+  const phone = document.getElementById("customerPhone").value.trim();
+  const area = document.getElementById("area").value;
+  const address = document.getElementById("address").value.trim();
+  const payment = document.getElementById("payment").value;
+  const notes = document.getElementById("notes").value.trim();
+
+  if (!name || !phone || !area || !address || !payment) {
+    showToast("أكمل بيانات التوصيل المطلوبة.");
+    return;
+  }
+
+  const subtotal = getSubtotal();
+  const delivery = getDeliveryFee();
+  const total = subtotal + delivery;
+
+  let message = "🍔 *طلب جديد - ملك الفلافل*\n\n";
+  message += "👤 الاسم: " + name + "\n";
+  message += "📞 هاتف العميل: " + phone + "\n";
+  message += "📍 المنطقة: " + area + "\n";
+  message += "🏠 تفاصيل الموقع: " + address + "\n";
+  message += "💳 طريقة الدفع: " + payment + "\n\n";
+  message += "🛒 *تفاصيل الطلب:*\n";
+
+  cart.forEach(item => {
+    message += "• " + item.name + " × " + item.quantity + " = " + money(item.price * item.quantity) + "\n";
+  });
+
+  message += "\nقيمة المنتجات: " + money(subtotal) + "\n";
+  message += "رسوم التوصيل: " + money(delivery) + "\n";
+  message += "💰 *الإجمالي: " + money(total) + "*\n";
+
+  if (notes) {
+    message += "\n📝 ملاحظات: " + notes + "\n";
+  }
+
+  message += "\nالمطعم: ملك الفلافل - حورة";
+
+  const url = "https://wa.me/" + RESTAURANT_WHATSAPP + "?text=" + encodeURIComponent(message);
+  window.open(url, "_blank");
+});
+
+document.getElementById("whatsappFloat").addEventListener("click", function(event) {
+  event.preventDefault();
+  const devMessage = "السلام عليكم أستاذ توفيق، أعجبني تصميم موقع ملك الفلافل وأرغب في الاستفسار عن تصميم موقع إلكتروني خاص بي.";
+  const url = "https://wa.me/" + DEVELOPER_WHATSAPP + "?text=" + encodeURIComponent(devMessage);
+  window.open(url, "_blank");
+});
+
+renderProducts();
+renderCart();
+</script>
+</body>
+</html>
