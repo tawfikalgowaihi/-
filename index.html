@@ -600,5 +600,16 @@ document.getElementById("whatsappFloat").addEventListener("click", function(even
 renderProducts();
 renderCart();
 </script>
+  <script>
+  // تسجيل الـ Service Worker ليعمل التطبيق بدون إنترنت (Offline PWA)
+  if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+      navigator.serviceWorker.register('./service-worker.js')
+        .then(reg => console.log('Service Worker registered successfully!', reg.scope))
+        .catch(err => console.log('Service Worker registration failed:', err));
+    });
+  }
+  </script>
+  
 </body>
 </html>
